@@ -1,8 +1,8 @@
 <template>
   <div class="container pt-3 pb-5">
     <h2>Lista de cadastro de operadoras</h2>
-    <SearchPanel />
-    <Table :operadoras="operadoras" />
+    <SearchPanel @search-submit="filterAction" />
+    <Table :operadoras="filteredOperadoras" />
   </div>
 </template>
 
@@ -20,12 +20,21 @@ export default {
   data() {
     return {
       operadoras: [],
+      searchInput: "",
     };
   },
   async created() {
     this.operadoras = await this.fetchOperadoras();
   },
-  computed: {},
+  computed: {
+    filteredOperadoras() {
+      return this.operadoras.filter((operadora) =>
+        operadora.__parsed_extra[1]
+          .toLowerCase()
+          .match(this.searchInput.toLowerCase())
+      );
+    },
+  },
   methods: {
     async fetchOperadoras() {
       const result = await fetch("dados/Relatorio_cadop.csv");
@@ -40,6 +49,9 @@ export default {
       });
       // console.log(csvToJson.data);
       return csvToJson.data;
+    },
+    filterAction(searchInput) {
+      this.searchInput = searchInput;
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <SearchBar />
+    <SearchBar @search-submit="getSearchInput" />
   </div>
 </template>
 
@@ -10,6 +10,12 @@ export default {
   name: "SearchPanel",
   components: {
     SearchBar,
+  },
+  emits: ["search-submit"],
+  methods: {
+    getSearchInput(searchInput) {
+      this.$emit("search-submit", searchInput);
+    },
   },
 };
 </script>
