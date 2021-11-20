@@ -1,18 +1,21 @@
 <template>
   <div class="container pt-3 pb-5">
-    <h2></h2>
-    <Table :operadoras="operadoras" :tableHead="tableHead" />
+    <h2>Lista de cadastro de operadoras</h2>
+    <SearchPanel />
+    <Table :operadoras="operadoras" />
   </div>
 </template>
 
 <script>
 import papa from "papaparse";
 import Table from "./components/Table.vue";
+import SearchPanel from "./components/SearchPanel.vue";
 
 export default {
   name: "App",
   components: {
     Table,
+    SearchPanel,
   },
   data() {
     return {
@@ -21,13 +24,8 @@ export default {
   },
   async created() {
     this.operadoras = await this.fetchOperadoras();
-    // this.tableHead = this.operadoras[0];
   },
-  computed: {
-    tableHead() {
-      return this.operadoras[0];
-    },
-  },
+  computed: {},
   methods: {
     async fetchOperadoras() {
       const result = await fetch("dados/Relatorio_cadop.csv");
