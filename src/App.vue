@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-3 pb-5">
     <h2>Lista de cadastro de operadoras</h2>
-    <SearchPanel @search-submit="filterAction" />
+    <SearchPanel :tableHead="tableHead" @search-submit="filterAction" />
     <Table :operadoras="filteredOperadoras" />
   </div>
 </template>
@@ -27,6 +27,9 @@ export default {
     this.operadoras = await this.fetchOperadoras();
   },
   computed: {
+    tableHead() {
+      return this.operadoras[0];
+    },
     filteredOperadoras() {
       return this.operadoras.filter((operadora) =>
         operadora.__parsed_extra[1]

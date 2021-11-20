@@ -1,6 +1,13 @@
 <template>
-  <div class="container">
-    <SearchBar @search-submit="getSearchInput" />
+  <div class="container" v-if="tableHead">
+    <SearchBar
+      v-for="(data, i) in tableHead.__parsed_extra[0]"
+      :key="i"
+      :label="tableHead.__parsed_extra[i]"
+      @search-submit="getSearchInput"
+    />
+
+    <!-- <SearchBar :label="tableHead" @search-submit="getSearchInput" /> -->
   </div>
 </template>
 
@@ -10,6 +17,9 @@ export default {
   name: "SearchPanel",
   components: {
     SearchBar,
+  },
+  props: {
+    tableHead: Object,
   },
   emits: ["search-submit"],
   methods: {
