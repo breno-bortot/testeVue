@@ -1,6 +1,6 @@
 <template>
-  <div class="container pt-3 pb-5">
-    <h2>Lista de cadastro de operadoras</h2>
+  <div class="container-fluid pt-3 pb-5">
+    <h1 class="text-center">Lista de cadastro de operadoras</h1>
     <SearchPanel :tableHead="tableHead" @search-submit="filterAction" />
     <Table :tableHead="tableHead" :operadoras="filteredOperadoras" />
   </div>
@@ -42,8 +42,8 @@ export default {
             .toLowerCase()
             .match(this.searchInput.toLowerCase());
         }
-        if (operadora["Rela��o de Operadoras Ativas ANS"]) {
-          return operadora["Rela��o de Operadoras Ativas ANS"]
+        if (operadora["Relação de Operadoras Ativas ANS"]) {
+          return operadora["Relação de Operadoras Ativas ANS"]
             .toString()
             .toLowerCase()
             .match(this.searchInput.toLowerCase());
@@ -71,6 +71,7 @@ export default {
     filterAction(searchInput, index) {
       this.searchInput = searchInput;
       this.indexFilter = index;
+      document.querySelector("table").scrollIntoView({ behavior: "smooth" });
     },
   },
 };

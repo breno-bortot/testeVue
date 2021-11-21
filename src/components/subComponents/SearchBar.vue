@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container col-sm-12 col-md-6 col-lg-4">
     <div class="form-group row">
       <label for="search" class="form-label mt-4">{{ label }} </label>
       <div class="input-group mb-3">

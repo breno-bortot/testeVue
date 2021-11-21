@@ -3,7 +3,7 @@
     v-if="operadoras"
     class="table table-bordered table-hover table-condensed"
   >
-    <thead v-if="tableHead.__parsed_extra">
+    <thead v-if="tableHead && tableHead.__parsed_extra">
       <tr>
         <th>{{ tableHead.__parsed_extra[0] }}</th>
         <th>{{ tableHead.__parsed_extra[1] }}</th>
@@ -23,7 +23,7 @@
         <th>{{ tableHead.__parsed_extra[15] }}</th>
         <th>{{ tableHead.__parsed_extra[16] }}</th>
         <th>{{ tableHead.__parsed_extra[17] }}</th>
-        <th>{{ tableHead["Rela��o de Operadoras Ativas ANS"] }}</th>
+        <th>{{ tableHead["Relação de Operadoras Ativas ANS"] }}</th>
       </tr>
     </thead>
     <tbody v-for="(data, i) in operadoras" :key="i">
@@ -46,7 +46,7 @@
         <td>{{ data.__parsed_extra[15] }}</td>
         <td>{{ data.__parsed_extra[16] }}</td>
         <td>{{ data.__parsed_extra[17] }}</td>
-        <td>{{ data["Rela��o de Operadoras Ativas ANS"] }}</td>
+        <td>{{ data["Relação de Operadoras Ativas ANS"] }}</td>
       </tr>
     </tbody>
   </table>
