@@ -1,8 +1,8 @@
 <template>
   <div class="container col-sm-12 col-md-6 col-lg-4">
     <div class="form-group row">
-      <label for="search" class="form-label mt-4">{{ label }} </label>
-      <div class="input-group mb-3">
+      <label for="search" class="form-label mt-2">{{ label }} </label>
+      <div class="input-group mb-1">
         <input
           @keyup.enter="$emit('search-submit', searchInput, index)"
           type="text"

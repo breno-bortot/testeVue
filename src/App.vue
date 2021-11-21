@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid pt-3 pb-5">
-    <h1 class="text-center">Lista de cadastro de operadoras</h1>
+    <h1 class="text-center mt-3 mb-5">Lista de cadastro de operadoras</h1>
     <SearchPanel :tableHead="tableHead" @search-submit="filterAction" />
     <Table :tableHead="tableHead" :operadoras="filteredOperadoras" />
   </div>
