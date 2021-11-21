@@ -3,31 +3,31 @@
     v-if="operadoras"
     class="table table-bordered table-hover table-condensed"
   >
-    <thead v-if="operadoras[0]">
+    <thead v-if="tableHead">
       <tr>
-        <th>{{ operadoras[0].__parsed_extra[0] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[1] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[2] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[3] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[4] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[5] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[6] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[7] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[8] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[9] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[10] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[11] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[12] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[13] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[14] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[15] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[16] }}</th>
-        <th>{{ operadoras[0].__parsed_extra[17] }}</th>
-        <th>{{ operadoras[0]["Rela��o de Operadoras Ativas ANS"] }}</th>
+        <th>{{ tableHead.__parsed_extra[0] }}</th>
+        <th>{{ tableHead.__parsed_extra[1] }}</th>
+        <th>{{ tableHead.__parsed_extra[2] }}</th>
+        <th>{{ tableHead.__parsed_extra[3] }}</th>
+        <th>{{ tableHead.__parsed_extra[4] }}</th>
+        <th>{{ tableHead.__parsed_extra[5] }}</th>
+        <th>{{ tableHead.__parsed_extra[6] }}</th>
+        <th>{{ tableHead.__parsed_extra[7] }}</th>
+        <th>{{ tableHead.__parsed_extra[8] }}</th>
+        <th>{{ tableHead.__parsed_extra[9] }}</th>
+        <th>{{ tableHead.__parsed_extra[10] }}</th>
+        <th>{{ tableHead.__parsed_extra[11] }}</th>
+        <th>{{ tableHead.__parsed_extra[12] }}</th>
+        <th>{{ tableHead.__parsed_extra[13] }}</th>
+        <th>{{ tableHead.__parsed_extra[14] }}</th>
+        <th>{{ tableHead.__parsed_extra[15] }}</th>
+        <th>{{ tableHead.__parsed_extra[16] }}</th>
+        <th>{{ tableHead.__parsed_extra[17] }}</th>
+        <th>{{ tableHead["Rela��o de Operadoras Ativas ANS"] }}</th>
       </tr>
     </thead>
     <tbody v-for="(data, i) in operadoras" :key="i">
-      <tr v-if="i !== 0">
+      <tr>
         <td>{{ data.__parsed_extra[0] }}</td>
         <td>{{ data.__parsed_extra[1] }}</td>
         <td>{{ data.__parsed_extra[2] }}</td>
@@ -56,6 +56,7 @@ export default {
   name: "Table",
   props: {
     operadoras: Array,
+    tableHead: Object,
   },
 };
 </script>

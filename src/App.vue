@@ -2,7 +2,7 @@
   <div class="container pt-3 pb-5">
     <h2>Lista de cadastro de operadoras</h2>
     <SearchPanel :tableHead="tableHead" @search-submit="filterAction" />
-    <Table :operadoras="filteredOperadoras" />
+    <Table :tableHead="tableHead" :operadoras="filteredOperadoras" />
   </div>
 </template>
 
@@ -19,25 +19,29 @@ export default {
   },
   data() {
     return {
-      operadoras: [],
+      tableBody: [],
+      tableHead: [],
       searchInput: "",
     };
   },
   async created() {
-    this.operadoras = await this.fetchOperadoras();
+    const table = await this.fetchOperadoras();
+    const tableHead = table.shift();
+    const tableBody = table;
+
+    this.tableHead = tableHead;
+    this.tableBody = tableBody;
   },
   computed: {
-    tableHead() {
-      return this.operadoras[0];
-    },
     filteredOperadoras() {
-      return this.operadoras.filter((operadora) =>
+      return this.tableBody.filter((operadora) =>
         operadora.__parsed_extra[1]
           .toLowerCase()
           .match(this.searchInput.toLowerCase())
       );
     },
   },
+
   methods: {
     async fetchOperadoras() {
       const result = await fetch("dados/Relatorio_cadop.csv");
