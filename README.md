@@ -5,6 +5,8 @@
 ```
 ## Project setup/ Instalação do Projeto
 ```
+( é necessário ter o gerenciador de pacotes YARN instalado, segue link para sua instalação https://classic.yarnpkg.com/en/docs/install#windows-stable )
+
 2- Abrir terminal e efetuar o comando a abaixo:
 
 yarn install
