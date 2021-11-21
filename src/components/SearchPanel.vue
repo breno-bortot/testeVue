@@ -1,8 +1,15 @@
 <template>
   <div class="container-fluid mb-5">
-    <b-card border-variant="info" header="Filtros" align="start">
+    <b-card border-variant="info" header-tag="header" align="start">
+      <template #header>
+        <h3 class="mb-0 text-info">Filtros</h3>
+      </template>
       <div>
-        <b-tabs content-class="mt-3" justified>
+        <b-tabs
+          active-nav-item-class="font-weight-bold text-uppercase text-info"
+          content-class="mt-3"
+          justified
+        >
           <b-tab
             v-for="(data, i) in tableHead.__parsed_extra"
             :key="i"
@@ -13,12 +20,14 @@
               :index="i"
               :label="tableHead.__parsed_extra[i]"
               @search-submit="getSearchInput"
-          /></b-tab>
+            />
+          </b-tab>
           <b-tab :title="tableHead['Relação de Operadoras Ativas ANS']" active>
             <SearchBar
               :label="tableHead['Relação de Operadoras Ativas ANS']"
               @search-submit="getSearchInput"
-          /></b-tab>
+            />
+          </b-tab>
         </b-tabs>
       </div>
       <b-card-text>

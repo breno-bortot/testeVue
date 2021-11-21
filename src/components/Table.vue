@@ -1,9 +1,12 @@
 <template>
   <table
     v-if="operadoras"
-    class="table table-bordered table-hover table-condensed"
+    class="table table-bordered table-striped table-condensed"
   >
-    <thead v-if="tableHead && tableHead.__parsed_extra">
+    <thead
+      class="bg-info text-white"
+      v-if="tableHead && tableHead.__parsed_extra"
+    >
       <tr>
         <th>{{ tableHead.__parsed_extra[0] }}</th>
         <th>{{ tableHead.__parsed_extra[1] }}</th>
@@ -26,8 +29,8 @@
         <th>{{ tableHead["Relação de Operadoras Ativas ANS"] }}</th>
       </tr>
     </thead>
-    <tbody v-for="(data, i) in operadoras" :key="i">
-      <tr>
+    <tbody>
+      <tr v-for="(data, i) in operadoras" :key="i">
         <td>{{ data.__parsed_extra[0] }}</td>
         <td>{{ data.__parsed_extra[1] }}</td>
         <td>{{ data.__parsed_extra[2] }}</td>

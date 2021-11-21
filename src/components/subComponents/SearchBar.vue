@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="form-group row">
-      <label for="search" class="form-label mt-2">{{ label }} </label>
+      <label for="search" class="form-label mt-2 text-info">{{ label }} </label>
       <div class="input-group mb-1">
         <input
           @keyup.enter="$emit('search-submit', searchInput, index)"
@@ -9,7 +9,7 @@
           class="col-sm-8 form-control"
           id="search"
           v-model="searchInput"
-          placeholder="search here"
+          placeholder="Buscar aqui"
         />
 
         <button
@@ -18,7 +18,7 @@
           type="button"
           id="button-addon2"
         >
-          Search
+          Buscar
         </button>
       </div>
     </div>
