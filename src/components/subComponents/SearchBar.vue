@@ -1,5 +1,5 @@
 <template>
-  <div class="container col-sm-12 col-md-6 col-lg-4">
+  <div class="container">
     <div class="form-group row">
       <label for="search" class="form-label mt-2">{{ label }} </label>
       <div class="input-group mb-1">
@@ -14,7 +14,7 @@
 
         <button
           @click="$emit('search-submit', searchInput, index)"
-          class="btn btn-primary"
+          class="btn btn-info"
           type="button"
           id="button-addon2"
         >
