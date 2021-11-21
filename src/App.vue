@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       tableBody: [],
-      tableHead: [],
+      tableHead: {},
       searchInput: "",
       indexFilter: 0,
     };
@@ -60,6 +60,7 @@ export default {
         header: true,
         dynamicTyping: true,
         skipEmptyLines: true,
+        encoding: "UTF-8",
         complete(result) {
           return result.data;
         },

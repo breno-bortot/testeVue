@@ -3,7 +3,7 @@
     v-if="operadoras"
     class="table table-bordered table-hover table-condensed"
   >
-    <thead v-if="tableHead">
+    <thead v-if="tableHead.__parsed_extra">
       <tr>
         <th>{{ tableHead.__parsed_extra[0] }}</th>
         <th>{{ tableHead.__parsed_extra[1] }}</th>
