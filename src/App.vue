@@ -42,6 +42,12 @@ export default {
             .toLowerCase()
             .match(this.searchInput.toLowerCase());
         }
+        if (operadora["Rela��o de Operadoras Ativas ANS"]) {
+          return operadora["Rela��o de Operadoras Ativas ANS"]
+            .toString()
+            .toLowerCase()
+            .match(this.searchInput.toLowerCase());
+        }
       });
     },
   },
