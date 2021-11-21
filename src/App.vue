@@ -22,6 +22,7 @@ export default {
       tableBody: [],
       tableHead: [],
       searchInput: "",
+      indexFilter: 0,
     };
   },
   async created() {
@@ -34,11 +35,14 @@ export default {
   },
   computed: {
     filteredOperadoras() {
-      return this.tableBody.filter((operadora) =>
-        operadora.__parsed_extra[1]
-          .toLowerCase()
-          .match(this.searchInput.toLowerCase())
-      );
+      return this.tableBody.filter((operadora) => {
+        if (operadora.__parsed_extra[this.indexFilter]) {
+          return operadora.__parsed_extra[this.indexFilter]
+            .toString()
+            .toLowerCase()
+            .match(this.searchInput.toLowerCase());
+        }
+      });
     },
   },
 
@@ -57,8 +61,9 @@ export default {
       // console.log(csvToJson.data);
       return csvToJson.data;
     },
-    filterAction(searchInput) {
+    filterAction(searchInput, index) {
       this.searchInput = searchInput;
+      this.indexFilter = index;
     },
   },
 };

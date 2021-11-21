@@ -1,10 +1,12 @@
 <template>
   <div class="container">
     <div class="form-group row">
-      <label for="search" class="form-label mt-4">{{ label }}</label>
+      <label for="search" class="form-label mt-4"
+        >{{ label }} {{ index }}
+      </label>
       <div class="input-group mb-3">
         <input
-          @keyup.enter="$emit('search-submit', searchInput)"
+          @keyup.enter="$emit('search-submit', searchInput, index)"
           type="text"
           class="col-sm-8 form-control"
           id="search"
@@ -13,7 +15,7 @@
         />
 
         <button
-          @click="$emit('search-submit', searchInput)"
+          @click="$emit('search-submit', searchInput, index)"
           class="btn btn-primary"
           type="button"
           id="button-addon2"
@@ -34,6 +36,7 @@ export default {
   },
   props: {
     label: String,
+    index: Number,
   },
 };
 </script>

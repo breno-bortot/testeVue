@@ -3,6 +3,7 @@
     <SearchBar
       v-for="(data, i) in tableHead.__parsed_extra"
       :key="i"
+      :index="i"
       :label="tableHead.__parsed_extra[i]"
       @search-submit="getSearchInput"
     />
@@ -26,8 +27,8 @@ export default {
   },
   emits: ["search-submit"],
   methods: {
-    getSearchInput(searchInput) {
-      this.$emit("search-submit", searchInput);
+    getSearchInput(searchInput, index) {
+      this.$emit("search-submit", searchInput, index);
     },
   },
 };
